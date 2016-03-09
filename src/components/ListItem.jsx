@@ -5,72 +5,39 @@ import { render } from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as ItemActions from '../actions/items.js'
+import ListItemEditor from './ListItemEditor.jsx'
 
 const ListItem = React.createClass({
   getInitialState() {
     return {
-      isEditing: false,
-      editedText: this.props.text
+      isEditing: false
     }
   },
   render() {
-    const { text } = this.props
+    const { text, itemId } = this.props
     const { isEditing } = this.state
     return (
       <li>
         { isEditing ?
-          <div>
-            <input ref="editInput" onChange={this.handleInputChange} onKeyUp={this.handleInputKeyUp} />
-            <button onClick={this.handleEditSave}>✔</button>
-            <button onClick={this.handleEditCancel}>✘</button>
-          </div>
+          <ListItemEditor itemId={itemId} text={text} onDoneEditing={this.onDoneEditing} />
           :
-          <div>
-            <span onClick={this.handleTextClick}>{text}</span>
+          <span>
+            <span onClick={this.handleStartEditing}>{text}</span>
             <button onClick={this.handleDelete}>Delete</button>
-          </div>
+          </span>
         }
       </li>
     )
   },
-  componentDidUpdate(prevProps, prevState) {
-    if (!prevState.isEditing && this.state.isEditing) {
-      this.initEditInput()
-    }
-  },
-  handleInputKeyUp(evt) {
-    switch (evt.key) {
-      case 'Enter':
-        return this.handleEditSave()
-      case 'Escape':
-        return this.handleEditCancel()
-    }
-  },
-  handleInputChange(evt) {
-    const editedText = evt.target.value
-    this.setState({ editedText: editedText })
-  },
-  handleTextClick() {
+  handleStartEditing() {
     this.setState({ isEditing: true })
   },
-  handleEditSave() {
-    const { itemId } = this.props
-    const { editedText } = this.state
-    this.setState({ isEditing: false })
-    this.props.editItem(itemId, editedText)
-  },
-  handleEditCancel() {
+  onDoneEditing() {
     this.setState({ isEditing: false })
   },
   handleDelete() {
     const { itemId } = this.props
     this.props.deleteItem(itemId)
-  },
-  initEditInput() {
-    const { editInput } = this.refs
-    const { text } = this.props
-    editInput.value = text
-    editInput.focus()
   }
 })
 
@@ -80,7 +47,6 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    editItem: bindActionCreators(ItemActions.editItem, dispatch),
     deleteItem: bindActionCreators(ItemActions.deleteItem, dispatch)
   }
 }
