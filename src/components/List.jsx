@@ -5,11 +5,18 @@ import { render } from 'react-dom'
 import { connect } from 'react-redux'
 import ListItem from './ListItem.jsx'
 
+require('../stylesheets/List.css')
+
 const List = React.createClass({
   render() {
+    const { items } = this.props
     return (
       <ul className="list">
-        { this.props.items.map(({ id, text }) => <ListItem key={id} itemId={id} text={text} />) }
+        {
+          items.map(({ id, text }) =>
+            <ListItem key={id} itemId={id} text={text} />
+          )
+        }
       </ul>
     )
   }

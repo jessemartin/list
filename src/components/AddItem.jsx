@@ -5,6 +5,9 @@ import { render } from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as ItemActions from '../actions/items.js'
+import Icon from './Icon.jsx'
+
+require('../stylesheets/AddItem.css')
 
 const AddItem = React.createClass({
   getInitialState() {
@@ -13,10 +16,14 @@ const AddItem = React.createClass({
     }
   },
   render() {
+    const { itemText } = this.state
     return (
-      <div>
-        <input ref="itemInput" onChange={this.handleInputChange} onKeyUp={this.handleInputKeyUp} value={this.state.itemText} />
-        <button onClick={this.handleAddItem}>+</button>
+      <div className="addItem">
+        <input ref="itemInput"
+          onChange={this.handleInputChange}
+          onKeyUp={this.handleInputKeyUp}
+          value={itemText} />
+        <a className="button" title="Add" onClick={this.handleAddItem}><Icon icon="plus" /></a>
       </div>
     )
   },

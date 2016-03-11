@@ -6,6 +6,9 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as ItemActions from '../actions/items.js'
 import ListItemEditor from './ListItemEditor.jsx'
+import Icon from './Icon.jsx'
+
+require('../stylesheets/ListItem.css')
 
 const ListItem = React.createClass({
   getInitialState() {
@@ -17,14 +20,19 @@ const ListItem = React.createClass({
     const { text, itemId } = this.props
     const { isEditing } = this.state
     return (
-      <li>
+      <li className="listItem">
         { isEditing ?
-          <ListItemEditor itemId={itemId} text={text} onDoneEditing={this.onDoneEditing} />
+          <ListItemEditor
+            itemId={itemId}
+            text={text}
+            onDoneEditing={this.onDoneEditing} />
           :
-          <span>
+          <div>
             <span onClick={this.handleStartEditing}>{text}</span>
-            <button onClick={this.handleDelete}>Delete</button>
-          </span>
+            <a className="deleteButton button" title="Delete" onClick={this.handleDelete}>
+              <Icon icon="trashCan" />
+            </a>
+          </div>
         }
       </li>
     )

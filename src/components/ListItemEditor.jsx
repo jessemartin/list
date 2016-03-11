@@ -16,11 +16,14 @@ const ListItemEditor = React.createClass({
     const { itemId } = this.props
     const { editedText } = this.state
     return (
-      <div>
-        <input ref="editInput" onChange={this.handleInputChange} onKeyUp={this.handleInputKeyUp} value={editedText} />
-        <button onClick={this.handleEditSave}>✔</button>
-        <button onClick={this.handleEditCancel}>✘</button>
-      </div>
+      <span>
+        <input ref="editInput"
+          onChange={this.handleInputChange}
+          onKeyUp={this.handleInputKeyUp}
+          value={editedText} />
+        <button onClick={this.handleEditSave}>✔ Save</button>
+        <button onClick={this.handleEditCancel}>✘ Cancel</button>
+      </span>
     )
   },
   componentDidMount() {

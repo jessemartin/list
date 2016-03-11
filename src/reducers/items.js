@@ -9,31 +9,35 @@ const getUniqueId = (function () {
   }
 }())
 
+function addItem (state, action) {
+  return [
+    { text: action.text, id: getUniqueId() },
+    ...state
+  ]
+}
+
 function editItem (state, action) {
-  const newState = state.slice()
-  const index = newState.findIndex((item) => {
+  const next = state.slice()
+  const index = next.findIndex((item) => {
     return item.id === action.id
   })
-  newState[index].text = action.updatedText
-  return newState
+  next[index].text = action.updatedText
+  return next
 }
 
 function deleteItem (state, action) {
-  const newState = state.slice()
-  const index = newState.findIndex((item) => {
+  const next = state.slice()
+  const index = next.findIndex((item) => {
     return item.id === action.id
   })
-  newState.splice(index, 1)
-  return newState
+  next.splice(index, 1)
+  return next
 }
 
 export default function (state = [], action) {
   switch (action.type) {
     case types.ADD_ITEM:
-      return [
-        { text: action.text, id: getUniqueId() },
-        ...state
-      ];
+      return addItem(state, action)
 
     case types.EDIT_ITEM:
       return editItem(state, action)

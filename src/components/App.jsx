@@ -11,7 +11,7 @@ require('../stylesheets/App.css')
 export default React.createClass({
   render() {
     return (
-      <div>
+      <div className="app">
         <AddItem />
         <List />
       </div>
