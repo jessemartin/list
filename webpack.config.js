@@ -19,7 +19,10 @@ const css = {
 
 module.exports = {
   cache: true,
-  entry: './src/index.js',
+  entry: [
+    'webpack/hot/dev-server',
+    './src/index.js'
+  ],
   output: {
     filename: 'dist/bundle.js'
   },

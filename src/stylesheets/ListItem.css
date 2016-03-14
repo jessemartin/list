@@ -1,12 +1,15 @@
 .listItem {
-  border: 2px solid #CCC;
-  margin: 2px 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  margin: -1px 0;
   padding: 20px 40px;
+  min-height: 26px;
 }
-.listItem .deleteButton {
-  float: right;
-  padding: 2px;
+.listItemContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.listItem .deleteButton path {
-  fill: red;
+.listItemText {
+  cursor: pointer;
 }

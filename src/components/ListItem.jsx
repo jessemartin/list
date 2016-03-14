@@ -6,7 +6,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as ItemActions from '../actions/items.js'
 import ListItemEditor from './ListItemEditor.jsx'
-import Icon from './Icon.jsx'
+import IconButton from './IconButton.jsx'
 
 require('../stylesheets/ListItem.css')
 
@@ -27,11 +27,9 @@ const ListItem = React.createClass({
             text={text}
             onDoneEditing={this.onDoneEditing} />
           :
-          <div>
-            <span onClick={this.handleStartEditing}>{text}</span>
-            <a className="deleteButton button" title="Delete" onClick={this.handleDelete}>
-              <Icon icon="trashCan" />
-            </a>
+          <div className="listItemContent">
+            <span className="listItemText" onClick={this.handleStartEditing} title="Click to edit">{text}</span>
+            <IconButton icon="trashCan" text="Delete" onClick={this.handleDelete} />
           </div>
         }
       </li>

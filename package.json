@@ -4,7 +4,7 @@
   "description": "app",
   "main": "index.js",
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --content-base dist/"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --content-base dist/"
   },
   "author": "Jesse Martin",
   "license": "MIT",

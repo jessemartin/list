@@ -4,16 +4,17 @@ import React from 'react'
 import { render } from 'react-dom'
 import IconPaths from '../icons/iconPaths.js'
 
-export default ({ icon, size=12 }) => {
+require('../stylesheets/Icon.css')
+
+export default ({ icon, size=16 }) => {
   const scale = size / 1024
   const transform = `scale(${scale} ${scale})`
+  const className = `icon ${icon}`
   return (
-    <div className={icon}>
-      <svg width={size} height={size}>
-        <g transform={transform}>
-          { IconPaths[icon].map((path, i) => <path key={i} d={path}></path>) }
-        </g>
-      </svg>
-    </div>
+    <svg className={className} width={size} height={size}>
+      <g transform={transform}>
+        { IconPaths[icon].map((path, i) => <path key={i} d={path}></path>) }
+      </g>
+    </svg>
   )
 }

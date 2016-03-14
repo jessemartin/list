@@ -5,7 +5,7 @@ import { render } from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as ItemActions from '../actions/items.js'
-import Icon from './Icon.jsx'
+import IconButton from './IconButton.jsx'
 
 require('../stylesheets/AddItem.css')
 
@@ -20,10 +20,12 @@ const AddItem = React.createClass({
     return (
       <div className="addItem">
         <input ref="itemInput"
+          className="addItemInput"
           onChange={this.handleInputChange}
           onKeyUp={this.handleInputKeyUp}
-          value={itemText} />
-        <a className="button" title="Add" onClick={this.handleAddItem}><Icon icon="plus" /></a>
+          value={itemText}
+          placeholder="Add an item" />
+        <IconButton icon="plus" text="Add" onClick={this.handleAddItem} />
       </div>
     )
   },

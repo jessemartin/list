@@ -29,7 +29,8 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 body {
-  line-height: 1;
+  /*line-height: 1;*/
+  line-height: 20px;
 }
 ol, ul {
   list-style: none;
@@ -53,13 +54,3 @@ table {
   margin: 20px auto;
   width: 400px;
 }
-
-
-/* general */
-
-.button {
-  cursor: pointer;
-  display: inline-block;
-  padding: 5px;
-}
-
