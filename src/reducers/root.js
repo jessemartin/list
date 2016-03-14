@@ -1,10 +1,10 @@
 'use strict'
 
 import { combineReducers } from 'redux'
-import items from './items.js'
+import ItemReducer from './ItemReducer.js'
 
 const rootReducer = combineReducers({
-  items
+  items: ItemReducer
 })
 
 export default rootReducer

@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { render } from 'react-dom'
-import IconPaths from '../icons/iconPaths.js'
+import IconPaths from '../icons/IconPaths.js'
 
 require('../stylesheets/Icon.css')
 
