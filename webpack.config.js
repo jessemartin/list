@@ -7,8 +7,7 @@ const js = {
   test: /\.js[x]?$/,
   loader: 'babel-loader',
   query: {
-    plugins: ['transform-object-rest-spread'],
-    presets: ['es2015', 'react']
+    plugins: ['transform-object-rest-spread']
   }
 };
 

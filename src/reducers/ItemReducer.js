@@ -15,7 +15,7 @@ function addItem (state, action) {
 }
 
 function editItem (state, action) {
-  const next = state.slice()
+  const next = JSON.parse(JSON.stringify(state))
   const index = next.findIndex((item) => {
     return item.id === action.id
   })
@@ -24,7 +24,7 @@ function editItem (state, action) {
 }
 
 function deleteItem (state, action) {
-  const next = state.slice()
+  const next = JSON.parse(JSON.stringify(state))
   const index = next.findIndex((item) => {
     return item.id === action.id
   })
