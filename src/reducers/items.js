@@ -1,17 +1,15 @@
 'use strict'
 
-import * as types from '../constants/action_types.js'
+import * as types from '../constants/ActionTypes.js'
 
-const getUniqueId = (function () {
-  let id = 0
-  return function () {
-    return id++
-  }
-}())
+const getUniqueId = (state) => {
+  return state.reduce((maxId, todo) =>
+    Math.max(todo.id, maxId), -1) + 1
+}
 
 function addItem (state, action) {
   return [
-    { text: action.text, id: getUniqueId() },
+    { text: action.text, id: getUniqueId(state) },
     ...state
   ]
 }

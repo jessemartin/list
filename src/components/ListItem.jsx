@@ -4,7 +4,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import * as ItemActions from '../actions/items.js'
+import * as ItemActions from '../actions/ListActions.js'
 import ListItemEditor from './ListItemEditor.jsx'
 import IconButton from './IconButton.jsx'
 

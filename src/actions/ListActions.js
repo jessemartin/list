@@ -1,6 +1,6 @@
 'use strict'
 
-import * as types from '../constants/action_types'
+import * as types from '../constants/ActionTypes'
 
 function addItemOptimistic (text) {
   return { type: types.ADD_ITEM, text }

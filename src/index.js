@@ -5,7 +5,7 @@ import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import App from './components/App.jsx'
 import configureStore from './store/configureStore'
-import * as ItemActions from './actions/items.js'
+import * as ItemActions from './actions/ListActions.js'
 
 const initialState = {
   items: [
@@ -15,14 +15,7 @@ const initialState = {
   ]
 }
 
-const store = configureStore()
-
-// side effect alert!
-// item ids are generated in the reducer, so we have to call addItem to populate
-initialState.items.forEach((item) => {
-  store.dispatch(ItemActions.addItem(item.text));
-})
-
+const store = configureStore(initialState)
 const container = document.createElement('div')
 container.className = 'container'
 
