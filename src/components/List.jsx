@@ -7,7 +7,7 @@ import ListItem from './ListItem.jsx'
 
 require('../stylesheets/List.css')
 
-const List = React.createClass({
+export const List = React.createClass({
   render() {
     const { items } = this.props
     return (

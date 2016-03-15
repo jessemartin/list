@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --content-base dist/",
-    "test": "mocha --compilers js:babel-core/register --reporter progress"
+    "test": "mocha --compilers js:babel-core/register,css:mocha-mock-css-loader --reporter progress"
   },
   "author": "Jesse Martin",
   "license": "MIT",
@@ -27,6 +27,8 @@
     "expect": "^1.15.2",
     "html-webpack-plugin": "^2.7.1",
     "mocha": "^2.4.5",
+    "mocha-mock-css-loader": "github:jessemartin/mocha-mock-css-loader",
+    "react-addons-test-utils": "^0.14.7",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.11",
     "webpack-dev-server": "^1.14.1"
