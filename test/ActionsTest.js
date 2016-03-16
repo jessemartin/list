@@ -5,32 +5,35 @@ import * as actions from '../src/actions/ListActions'
 import * as types from '../src/constants/ActionTypes'
 
 describe('actions', () => {
+  let dispatch
+  beforeEach(() => {
+    dispatch = createSpy()
+  })
+
   describe('addItem', () => {
     it('should dispatch an add action', () => {
-      const dispatch = createSpy()
       const text = 'Something'
-      const expectedAction = { type: types.ADD_ITEM, text }
       actions.addItem(text)(dispatch)
-      expect(dispatch).toHaveBeenCalledWith(expectedAction)
+      expect(dispatch).toHaveBeenCalledWith({ type: types.ADD_ITEM, text })
     })
   })
+
   describe('editItem', () => {
     it('should dispatch an edit action', () => {
-      const dispatch = createSpy()
-      const updatedText = 'Something else'
       const id = 1
-      const expectedAction = { type: types.EDIT_ITEM, id, updatedText }
+      const updatedText = 'Something else'
       actions.editItem(id, updatedText)(dispatch)
-      expect(dispatch).toHaveBeenCalledWith(expectedAction)
+      expect(dispatch).toHaveBeenCalledWith(
+        { type: types.EDIT_ITEM, id, updatedText }
+      )
     })
   })
+
   describe('deleteItem', () => {
     it('should dispatch a delete action', () => {
-      const dispatch = createSpy()
       const id = 1
-      const expectedAction = { type: types.DELETE_ITEM, id }
       actions.deleteItem(id)(dispatch)
-      expect(dispatch).toHaveBeenCalledWith(expectedAction)
+      expect(dispatch).toHaveBeenCalledWith({ type: types.DELETE_ITEM, id })
     })
   })
 })
