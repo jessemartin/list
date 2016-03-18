@@ -6,10 +6,8 @@ import { List } from '../src/components/List.jsx'
 const setup = (props={ items: [] }) => {
   const renderer = TestUtils.createRenderer()
   renderer.render(<List {...props} />)
-  const output = renderer.getRenderOutput()
-
   return {
-    output
+    output: renderer.getRenderOutput()
   }
 }
 
