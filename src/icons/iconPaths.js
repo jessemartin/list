@@ -1,5 +1,3 @@
-'use strict'
-
 // icons from https://icomoon.io/app/#/select
 
 export default {

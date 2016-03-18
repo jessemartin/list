@@ -1,5 +1,3 @@
-'use strict'
-
 import expect, { createSpy } from 'expect'
 import * as actions from '../src/actions/ListActions'
 import * as types from '../src/constants/ActionTypes'

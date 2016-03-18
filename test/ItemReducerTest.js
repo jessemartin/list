@@ -1,5 +1,3 @@
-'use strict'
-
 import expect from 'expect'
 import ItemReducer from '../src/reducers/ItemReducer'
 import * as types from '../src/constants/ActionTypes'

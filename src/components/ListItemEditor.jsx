@@ -1,5 +1,3 @@
-'use strict'
-
 import React from 'react'
 import { render } from 'react-dom'
 import { connect } from 'react-redux'
@@ -16,7 +14,6 @@ const ListItemEditor = React.createClass({
     }
   },
   render() {
-    const { itemId } = this.props
     const { editedText } = this.state
     return (
       <div className="listItemEditor">
