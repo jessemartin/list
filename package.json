@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --content-base dist/",
-    "test-no-coverage": "mocha --compilers js:babel-core/register,css:mocha-mock-css-loader --reporter progress",
-    "test": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha -- test/**/*.js* --compilers css:mocha-mock-css-loader"
+    "test": "mocha test/**/*.js* --compilers js:babel-core/register,css:mocha-mock-css-loader --reporter progress",
+    "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha -- test/**/*.js* --compilers css:mocha-mock-css-loader"
   },
   "author": "Jesse Martin",
   "license": "MIT",
