@@ -1,7 +1,7 @@
 import expect, { createSpy } from 'expect'
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
-import { ListItem } from '../src/components/ListItem.jsx'
+import { ListItem } from '../../src/components/ListItem.jsx'
 
 const setup = () => {
   const props = { text: 'An item', itemId: 1, deleteItem: createSpy() }

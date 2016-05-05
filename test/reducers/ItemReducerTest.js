@@ -1,6 +1,6 @@
 import expect from 'expect'
-import ItemReducer from '../src/reducers/ItemReducer'
-import * as types from '../src/constants/ActionTypes'
+import ItemReducer from '../../src/reducers/ItemReducer'
+import * as types from '../../src/constants/ActionTypes'
 
 const ACTIONS = {
   ADD: { type: types.ADD_ITEM, text: 'Added item' },
