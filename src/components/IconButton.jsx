@@ -4,7 +4,7 @@ import Icon from './Icon.jsx'
 
 require('../stylesheets/IconButton.css')
 
-class IconButton extends React.Component{
+export default class IconButton extends React.Component {
   render() {
     const { icon, text, onClick } = this.props
     const className = this.getClassName()
@@ -24,5 +24,3 @@ class IconButton extends React.Component{
     return classes.join(' ')
   }
 }
-
-export default IconButton

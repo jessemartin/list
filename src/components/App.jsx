@@ -6,7 +6,7 @@ import List from './List.jsx'
 
 require('../stylesheets/App.css')
 
-export default React.createClass({
+export default class App extends React.Component {
   render() {
     return (
       <div className="app">
@@ -15,4 +15,4 @@ export default React.createClass({
       </div>
     )
   }
-})
+}

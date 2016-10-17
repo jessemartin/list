@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import _ from 'underscore'
 import * as ItemActions from '../actions/ListActions.js'
 import ListItemEditor from './ListItemEditor.jsx'
 import IconButton from './IconButton.jsx'
@@ -15,6 +16,11 @@ class ListItem extends React.Component {
       isEditing: false,
       hidden: true,
     }
+    _.bindAll(this,
+      'onDoneEditing',
+      'handleStartEditing',
+      'handleDelete'
+    )
   }
   componentDidMount() {
     setTimeout(() => this.show(), 1)
@@ -29,11 +35,11 @@ class ListItem extends React.Component {
           <ListItemEditor
             itemId={itemId}
             text={text}
-            onDoneEditing={this.onDoneEditing.bind(this)} />
+            onDoneEditing={this.onDoneEditing} />
           :
           <div className="listItemContent">
-            <span className="listItemText" onClick={this.handleStartEditing.bind(this)} title="Click to edit">{text}</span>
-            <IconButton icon="trashCan" text="Delete" onClick={this.handleDelete.bind(this)} />
+            <span className="listItemText" onClick={this.handleStartEditing} title="Click to edit">{text}</span>
+            <IconButton icon="trashCan" text="Delete" onClick={this.handleDelete} />
           </div>
         }
       </li>

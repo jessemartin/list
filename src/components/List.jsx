@@ -5,7 +5,7 @@ import ListItem from './ListItem.jsx'
 
 require('../stylesheets/List.css')
 
-export const List = React.createClass({
+export class List extends React.Component {
   render() {
     const { items } = this.props
     return (
@@ -18,7 +18,7 @@ export const List = React.createClass({
       </ul>
     )
   }
-})
+}
 
 function mapStateToProps (state) {
   return {

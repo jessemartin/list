@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import _ from 'underscore'
 import * as ItemActions from '../actions/ListActions.js'
 import IconButton from './IconButton.jsx'
 
@@ -10,9 +11,12 @@ require('../stylesheets/AddItem.css')
 class AddItem extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      itemText: ''
-    }
+    this.state = { itemText: '' }
+    _.bindAll(this,
+      'handleInputChange',
+      'handleInputKeyUp',
+      'handleAddItem'
+    );
   }
   render() {
     const { itemText } = this.state
@@ -20,11 +24,11 @@ class AddItem extends React.Component {
       <div className="addItem">
         <input ref="itemInput"
           className="addItemInput"
-          onChange={this.handleInputChange.bind(this)}
-          onKeyUp={this.handleInputKeyUp.bind(this)}
+          onChange={this.handleInputChange}
+          onKeyUp={this.handleInputKeyUp}
           value={itemText}
           placeholder="Add an item" />
-        <IconButton className="addItemButton" icon="plus" text="Add" onClick={this.handleAddItem.bind(this)} />
+        <IconButton className="addItemButton" icon="plus" text="Add" onClick={this.handleAddItem} />
       </div>
     )
   }
