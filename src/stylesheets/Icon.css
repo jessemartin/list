@@ -2,5 +2,5 @@
   display: block;
 }
 .icon path {
-  fill: #777;
+  fill: var(--color-mineral-grey);
 }

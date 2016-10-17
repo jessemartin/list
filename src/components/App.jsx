@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import AddItem from './AddItem.jsx'
 import List from './List.jsx'
 
+require('../stylesheets/Reset.css')
+require('../stylesheets/Colors.css')
 require('../stylesheets/App.css')
 
 export default class App extends React.Component {
