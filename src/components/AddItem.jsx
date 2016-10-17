@@ -7,26 +7,27 @@ import IconButton from './IconButton.jsx'
 
 require('../stylesheets/AddItem.css')
 
-const AddItem = React.createClass({
-  getInitialState() {
-    return {
+class AddItem extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
       itemText: ''
     }
-  },
+  }
   render() {
     const { itemText } = this.state
     return (
       <div className="addItem">
         <input ref="itemInput"
           className="addItemInput"
-          onChange={this.handleInputChange}
-          onKeyUp={this.handleInputKeyUp}
+          onChange={this.handleInputChange.bind(this)}
+          onKeyUp={this.handleInputKeyUp.bind(this)}
           value={itemText}
           placeholder="Add an item" />
-        <IconButton icon="plus" text="Add" onClick={this.handleAddItem} />
+        <IconButton className="addItemButton" icon="plus" text="Add" onClick={this.handleAddItem.bind(this)} />
       </div>
     )
-  },
+  }
   handleInputKeyUp(evt) {
     switch (evt.key) {
       case 'Enter':
@@ -34,24 +35,24 @@ const AddItem = React.createClass({
       case 'Escape':
         return this.resetItemInput()
     }
-  },
+  }
   handleInputChange(evt) {
     const itemText = evt.target.value
     this.setState({ itemText: itemText })
-  },
+  }
   handleAddItem() {
     const { itemText } = this.state
     if (itemText) {
       this.props.addItem(itemText)
       this.resetItemInput()
     }
-  },
+  }
   resetItemInput() {
     const { itemInput } = this.refs
     this.setState({ itemText: '' })
     itemInput.focus()
   }
-})
+}
 
 function mapStateToProps (state) {
   return { }

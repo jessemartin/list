@@ -4,16 +4,25 @@ import Icon from './Icon.jsx'
 
 require('../stylesheets/IconButton.css')
 
-const IconButton = React.createClass({
+class IconButton extends React.Component{
   render() {
     const { icon, text, onClick } = this.props
+    const className = this.getClassName()
     return (
-      <a className="iconButton" title={text} onClick={onClick}>
+      <a className={className} title={text} onClick={onClick}>
         <Icon icon={icon} size="14" />
         <span className="iconButtonText">{text}</span>
       </a>
     )
   }
-})
+  getClassName() {
+    const classes = ['iconButton']
+    const { className } = this.props
+    if (className) {
+      classes.push(className)
+    }
+    return classes.join(' ')
+  }
+}
 
 export default IconButton
