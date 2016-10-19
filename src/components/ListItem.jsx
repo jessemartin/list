@@ -14,16 +14,12 @@ class ListItem extends React.Component {
     super(props)
     this.state = {
       isEditing: false,
-      hidden: true,
     }
     _.bindAll(this,
       'onDoneEditing',
       'handleStartEditing',
       'handleDelete'
     )
-  }
-  componentDidMount() {
-    setTimeout(() => this.show(), 1)
   }
   render() {
     const { text, itemId } = this.props
@@ -47,16 +43,10 @@ class ListItem extends React.Component {
   }
   getClassName() {
     const classes = ['listItem']
-    if (this.state.hidden) {
+    if (this.props.hidden) {
       classes.push(' hide')
     }
     return classes.join(' ')
-  }
-  hide() {
-    this.setState({ hidden: true })
-  }
-  show() {
-    this.setState({ hidden: false })
   }
   handleStartEditing() {
     this.setState({ isEditing: true })
@@ -66,10 +56,7 @@ class ListItem extends React.Component {
   }
   handleDelete() {
     const { itemId } = this.props
-    this.hide()
-    setTimeout(() => {
-      this.props.deleteItem(itemId)
-    }, 500)
+    this.props.deleteItem(itemId)
   }
 }
 
@@ -79,7 +66,7 @@ function mapStateToProps (state) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    deleteItem: bindActionCreators(ItemActions.deleteItem, dispatch)
+    deleteItem: bindActionCreators(ItemActions.deleteItem, dispatch),
   }
 }
 

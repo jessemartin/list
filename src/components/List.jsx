@@ -11,8 +11,8 @@ export class List extends React.Component {
     return (
       <ul className="list">
         {
-          items.map(({ id, text }) =>
-            <ListItem key={id} itemId={id} text={text} />
+          items.map(({ id, text, hidden }) =>
+            <ListItem key={id} itemId={id} text={text} hidden={hidden} />
           )
         }
       </ul>
